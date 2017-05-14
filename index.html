@@ -7,6 +7,22 @@
 	<link rel="stylesheet" type="text/css" href="./styles/main.css">
 </head>
 <body ng-app="mushroomManiaApp">
+	<div class="jumbotron">
+		<h1>MUSHROOM MANIA</h1>
+	</div>
+	<div class="container">
+		<div ng-controller="mushroomCtrl">
+			<form>
+				<input type="radio" ng-model="isEdible" ng-value="true"> Edible <br>
+				<input type="radio" ng-model="isEdible" ng-value="false"> Non-Edible <br>
+				<input type="text" name="" ng-model="searchText">
+			</form>
+			<div ng-repeat="item in mushroomItems | filter: searchText | filter: isEdible">
+				<h3>{{item.name}}</h3>
+				<p>{{item.description}}</p>
+			</div>
+		</div>
+	</div>
 
 
 
